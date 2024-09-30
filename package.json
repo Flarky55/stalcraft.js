@@ -1,11 +1,14 @@
 {
   "name": "stalcraft.js",
-  "version": "1.0.0",
-  "description": "Module to work with STALCRAFT API",
+  "version": "0.1.0",
+  "description": "Node.js module to work with STALCRAFT API",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Flarky",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.5.5"
+  }
 }

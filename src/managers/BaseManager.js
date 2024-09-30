@@ -14,7 +14,7 @@ class BaseManager {
      * @param {Client} client 
      */
     constructor(client) {
-        Object.defineProperty(this, "client", { value: client, writable: false })
+        Object.defineProperty(this, "client", { value: client })
     }
 }
 

@@ -1,7 +1,9 @@
+const CharacterStatisticsManager = require("../managers/CharacterStatisticsManager");
+
 /**
  * @typedef {Object} CharacterClanInfo
- * @property {import("./ClanManager").ClanInfo} info
- * @property {import("./ClanManager").ClanMember} member
+ * @property {import("../managers/ClanManager").ClanInfo} info
+ * @property {import("../managers/ClanManager").ClanMember} member
  */
 
 /**
@@ -28,14 +30,19 @@ class Character {
      * 
      * @param {CharacterProfileData} data 
      */
-    constructor(data) {
-        for (const key of Object.keys(data)) {
-            Object.defineProperty(this, key, { value: data[key] })
-        }
 
-        if ("lastLogin" in data) {
-            this.lastLoginTimestamp = Date.parse(data.lastLogin)
+    constructor({ username, uuid, status, alliance, lastLogin = null, displayedAchievements = [], clan = null, stats = [] }) {
+        this.username = username;
+        this.uuid = uuid;
+        this.status = status;
+        this.alliance = alliance;
+        if (lastLogin) {
+            /** @type {Date|null} */
+            this.lastLogin = new Date(lastLogin);
         }
+        this.displayedAchievements = displayedAchievements;
+        this.clan = clan;
+        this.stats = new CharacterStatisticsManager(this, stats);
     }
 }
 

@@ -7,10 +7,11 @@ class CharacterManager extends BaseManager {
      * Includes alliance, profile description, last login time, stats, etc.
      * @param {string} region 
      * @param {string} character
-     * @returns {Character}
+     * @returns {Promise<Character>}
      */
     async profile(region, character) {
         const data = await this.client.fetch(`${region}/character/by-name/${character}/profile`)
+        if (!data) return false;
 
         return new Character(data)
     }

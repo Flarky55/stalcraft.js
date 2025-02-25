@@ -1,3 +1,4 @@
+const CharacterAchievementsManager = require("../managers/CharacterAchievementsManager");
 const CharacterStatisticsManager = require("../managers/CharacterStatisticsManager");
 
 /**
@@ -40,7 +41,7 @@ class Character {
             /** @type {Date|null} */
             this.lastLogin = new Date(lastLogin);
         }
-        this.displayedAchievements = displayedAchievements;
+        this.displayedAchievements = new CharacterAchievementsManager(this, displayedAchievements);
         this.clan = clan;
         this.stats = new CharacterStatisticsManager(this, stats);
     }

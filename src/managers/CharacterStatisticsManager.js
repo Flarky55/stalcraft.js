@@ -31,15 +31,14 @@ const databaseStats = new Map();
 
 
 class CharacterStatisticsManager {
+    #mapId = new Map()
+    #mapCategory = new Map()
+    
     /**
      * 
      * @param {Character} character
      * @param {Array<import("../structures/Character").CharacterStatValue>} stats 
      */
-
-    #mapId = new Map()
-    #mapCategory = new Map()
-
     constructor(character, stats) {
         Object.defineProperty(this, "character", { value: character })
 
